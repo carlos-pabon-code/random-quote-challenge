@@ -20,4 +20,4 @@ export default createGlobalStyle`
     --light-gray: #828282;
 }
 
-`
+`;
