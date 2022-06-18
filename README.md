@@ -37,7 +37,7 @@ yarn create vite
 - [Styled components](https://styled-components.com/)
 
 ```sh
-npm install --save styled-components
+yarn add styled-components
 ```
 
 - [Hero Icons](https://heroicons.com/)
