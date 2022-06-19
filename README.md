@@ -34,6 +34,8 @@
 yarn create vite
 ```
 
+- [api.quotable.io] (https://github.com/lukePeavey/quotable)
+
 - [Styled components](https://styled-components.com/)
 
 ```sh

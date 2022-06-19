@@ -1,4 +1,6 @@
+import { useContext } from "react";
 import styled from "styled-components";
+import RandomQuoteContext from "../context/RandomQuoteContext";
 
 const HeaderContainer = styled.header`
   display: flex;
@@ -17,6 +19,7 @@ const RandomButton = styled.button`
   color: var(--gray);
   font-weight: 500;
   font-size: 18px;
+  cursor: pointer;
   svg {
     width: 1.3rem;
     transform: rotate(-40deg) scaleX(-1);
@@ -26,9 +29,15 @@ const RandomButton = styled.button`
 `;
 
 export const Header = () => {
+  // useContext to control when the users clicks the random button
+  const { setRandomQuote } = useContext(RandomQuoteContext);
+  const handleRandomQuote = () => {
+    setRandomQuote(true);
+  };
+
   return (
     <HeaderContainer>
-      <RandomButton type="button">
+      <RandomButton type="button" onClick={handleRandomQuote}>
         random
         <svg
           xmlns="http://www.w3.org/2000/svg"
