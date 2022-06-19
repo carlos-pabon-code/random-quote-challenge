@@ -11,7 +11,7 @@ export default createGlobalStyle`
 :root{
     //Fonts
     --paragraph: 'Montserrat', sans-serif;
-    --footer: font-family: 'Raleway', sans-serif;
+    --footer: 'Raleway', sans-serif;
     //Colors
     --yellow: #F7DF94;
     --black: #000000;

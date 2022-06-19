@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
 import { Quote } from "../components/Quote";
 
@@ -18,6 +19,7 @@ export const Home = () => {
       <Main role="main">
         <Quote />
       </Main>
+      <Footer />
     </HomeContainer>
   );
 };
