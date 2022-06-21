@@ -23,8 +23,31 @@ const InitialMessage = styled.section`
 `;
 const QuoteData = styled.section`
   margin: 10rem 0 0 5rem;
+  transition: background 0.4s ease-in-out, color 0.2s ease-in-out;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 1rem;
+  &:hover {
+    background: var(--dark-gray);
+  }
+  &:hover #quote-author {
+    color: var(--white);
+  }
+  &:hover #arrow-icon {
+    color: var(--white);
+  }
 `;
-
+const QuoteInfo = styled.article`
+  background-color: transparent;
+`;
+const ArrowIcon = styled.div`
+  svg {
+    width: 1.4rem;
+    color: var(--dark-gray);
+  }
+`;
 const QuoteText = styled.blockquote`
   font-family: var(--paragraph);
   color: var(--black);
@@ -96,8 +119,27 @@ export const Quote = () => {
             <QuoteText>"{quote.content}"</QuoteText>
           </QuoteSection>
           <QuoteData>
-            <QuoteAuthor>{quote.author}</QuoteAuthor>
-            <QuoteGenre>{quote.genre}</QuoteGenre>
+            <QuoteInfo>
+              <QuoteAuthor id="quote-author">{quote.author}</QuoteAuthor>
+              <QuoteGenre>{quote.genre}</QuoteGenre>
+            </QuoteInfo>
+            <ArrowIcon>
+              <svg
+                id="arrow-icon"
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                />
+              </svg>
+            </ArrowIcon>
           </QuoteData>
         </>
       )}
