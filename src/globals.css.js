@@ -21,6 +21,14 @@ export default createGlobalStyle`
     --light-gray: #828282;
 }
 
+a{
+  text-decoration: none;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
 .lds-dual-ring {
   display: block;
   width: 40px;

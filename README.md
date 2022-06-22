@@ -42,6 +42,12 @@ yarn create vite
 yarn add styled-components
 ```
 
+- [react-router] (https://reactrouter.com/docs/en/v6)
+
+```sh
+yarn add react-router-dom@6
+```
+
 - [Hero Icons](https://heroicons.com/)
 
 ## Features

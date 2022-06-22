@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import RandomQuoteContext from "../context/RandomQuoteContext";
 
@@ -31,8 +32,16 @@ const RandomButton = styled.button`
 export const Header = () => {
   // useContext to control when the users clicks the random button
   const { setRandomQuote } = useContext(RandomQuoteContext);
+
+  const location = useLocation();
+  let navigate = useNavigate();
+
   const handleRandomQuote = () => {
     setRandomQuote(true);
+    if (location.pathname.includes("quotes")) {
+      navigate("/");
+      setRandomQuote(true);
+    }
   };
 
   return (
