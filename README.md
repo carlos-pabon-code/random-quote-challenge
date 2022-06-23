@@ -7,7 +7,7 @@
 <div align="center">
 
   <h3>
-    <a href="https://ubiquitous-tapioca-8db476.netlify.app/#/">
+    <a href="https://random-quotes-carlosp.netlify.app/">
       Solution
     </a>
     <span> | </span>
