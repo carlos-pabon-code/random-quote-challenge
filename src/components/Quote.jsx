@@ -3,6 +3,8 @@ import styled, { css } from "styled-components";
 import LoaderContext from "../context/LoaderContext";
 import QuoteContext from "../context/QuoteContext";
 import RandomQuoteContext from "../context/RandomQuoteContext";
+import { getAuthorQuotes } from "../helpers/getAuthorQuotes";
+import { getRandomQuote } from "../helpers/getRandomQuote";
 import { Loader } from "./Loader";
 
 const QuoteContainer = styled.section`
@@ -34,8 +36,6 @@ const QuoteText = styled.blockquote`
   font-size: 36px;
 `;
 
-const api = "https://api.quotable.io";
-
 export const Quote = ({ module, selectedAuthor }) => {
   // useContext to control when the users clicks the random button
   const { randomQuote, setRandomQuote } = useContext(RandomQuoteContext);
@@ -46,39 +46,21 @@ export const Quote = ({ module, selectedAuthor }) => {
   // useState to save the quotes of an specific author
   const [authorsQuote, setAuthorsQuote] = useState([]);
 
-  const getRandomQuote = async () => {
-    try {
-      setLoader(true);
-      const request = await fetch(`${api}/random`);
-      const quote = await request.json();
-      setQuote({
-        content: quote.content,
-        author: quote.author,
-        genre: quote.tags[0],
-      });
-      setLoader(false);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  const getAuthorQuotes = async (selectedAuthor) => {
-    try {
-      const request = await fetch(
-        `${api}/search/quotes?query=${selectedAuthor}&fields=author&limit=5`
-      );
-      const data = await request.json();
-      setAuthorsQuote(data.results);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
   useEffect(() => {
     if (randomQuote && module === "home") {
-      getRandomQuote();
+      setLoader(true);
+      getRandomQuote().then((quote) => {
+        setQuote({
+          content: quote.content,
+          author: quote.author,
+          genre: quote.tags[0],
+        });
+        setLoader(false);
+      });
     } else {
-      getAuthorQuotes(selectedAuthor);
+      getAuthorQuotes(selectedAuthor).then((quotes) => {
+        setAuthorsQuote(quotes);
+      });
     }
     return () => {
       setRandomQuote(false);

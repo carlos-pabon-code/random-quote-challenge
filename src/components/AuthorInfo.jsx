@@ -53,9 +53,9 @@ export const AuthorInfo = () => {
   const { quote } = useContext(QuoteContext);
   return (
     <Link to={`/quotes/${quote.author}`}>
-      <QuoteData>
-        {quote.content !== "" && !loader && (
-          <>
+      {quote.content !== "" && !loader && (
+        <>
+          <QuoteData>
             <QuoteInfo>
               <QuoteAuthor id="quote-author">{quote.author}</QuoteAuthor>
               <QuoteGenre>{quote.genre}</QuoteGenre>
@@ -77,9 +77,9 @@ export const AuthorInfo = () => {
                 />
               </svg>
             </ArrowIcon>
-          </>
-        )}
-      </QuoteData>
+          </QuoteData>
+        </>
+      )}
     </Link>
   );
 };
