@@ -9,17 +9,26 @@ import { Loader } from "./Loader";
 
 const QuoteContainer = styled.section`
   margin: 0 auto;
-  width: 600px;
+  width: 70%;
+  @media (min-width: 1024px) {
+    width: 600px;
+  }
 `;
 const QuoteSection = styled.section`
-  padding: 0 0 0 5rem;
+  padding: 0 0 0 3rem;
   border-left: solid 8px var(--yellow);
-  line-height: 42.3px;
+  line-height: 1.6;
   ${({ module }) =>
     module === "quotes" &&
     css`
-      margin: 5rem 0 10rem 0;
+      margin: 5rem 0;
+      @media (min-width: 1024px) {
+        margin: 5rem 0 10rem 0;
+      }
     `}
+  @media (min-width: 1024px) {
+    padding: 0 0 0 5rem;
+  }
 `;
 const InitialMessage = styled.section`
   margin: 0 auto;
@@ -29,11 +38,18 @@ const InitialMessage = styled.section`
   margin-bottom: 4rem;
   color: var(--gray);
 `;
+
 const QuoteText = styled.blockquote`
   font-family: var(--paragraph);
   color: var(--black);
   font-weight: 500;
-  font-size: 36px;
+  font-size: 18px;
+  @media (min-width: 768px) {
+    font-size: 24px;
+  }
+  @media (min-width: 1024px) {
+    font-size: 36px;
+  }
 `;
 
 export const Quote = ({ module, selectedAuthor }) => {

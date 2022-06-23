@@ -3,19 +3,16 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import QuoteContext from "../context/QuoteContext";
 import LoaderContext from "../context/LoaderContext";
-
-const QuoteInfo = styled.article`
-  background-color: transparent;
-`;
 const ArrowIcon = styled.div`
   svg {
     width: 1.4rem;
     color: var(--dark-gray);
   }
 `;
+
 const QuoteData = styled.section`
-  width: 600px;
-  margin: 10rem 0 0 5rem;
+  width: 90%;
+  margin: 4rem auto;
   transition: background 0.4s ease-in-out, color 0.2s ease-in-out;
   cursor: pointer;
   display: flex;
@@ -31,7 +28,17 @@ const QuoteData = styled.section`
   &:hover #arrow-icon {
     color: var(--white);
   }
+
+  @media (min-width: 768px) {
+    width: 600px;
+    margin: 10rem auto;
+  }
 `;
+
+const QuoteInfo = styled.article`
+  background-color: transparent;
+`;
+
 const QuoteAuthor = styled.p`
   font-family: var(--paragraph);
   color: var(--gray);
@@ -39,6 +46,7 @@ const QuoteAuthor = styled.p`
   font-size: 24px;
   padding: 0.5rem 0;
 `;
+
 const QuoteGenre = styled.p`
   font-family: var(--paragraph);
   color: var(--light-gray);
@@ -52,7 +60,7 @@ export const AuthorInfo = () => {
   // useContext to get the random quote
   const { quote } = useContext(QuoteContext);
   return (
-    <Link to={`/quotes/${quote.author}`}>
+    <Link style={{ width: "100%" }} to={`/quotes/${quote.author}`}>
       {quote.content !== "" && !loader && (
         <>
           <QuoteData>

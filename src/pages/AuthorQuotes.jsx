@@ -17,10 +17,17 @@ const Main = styled.section`
 `;
 const QuotesSection = styled.section``;
 const Author = styled.h2`
+  width: 90%;
+  text-align: center;
+  margin: 0 auto;
   font-family: var(--paragraph);
   font-weight: 700;
   font-size: 36px;
   color: var(--dark-gray);
+  @media (min-width: 1024px) {
+    text-align: left;
+    width: 100%;
+  }
 `;
 
 export const AuthorQuotes = () => {
